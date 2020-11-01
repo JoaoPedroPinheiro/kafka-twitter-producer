@@ -26,7 +26,7 @@ public class TwitterClientFactory {
     }
 
     public TwitterClient buildTwitterClient() {
-        var msgQueue = new LinkedBlockingQueue<String>(100000);
+        var msgQueue = new LinkedBlockingQueue<String>(1000);
         var client = buildHosebirdClient(msgQueue);
         return new TwitterClient(client, msgQueue);
     }

@@ -20,4 +20,11 @@ public class TwitterClient {
     }
 
 
+    public boolean isDone() {
+        return client.isDone();
+    }
+
+    public void stop() {
+        client.stop();
+    }
 }

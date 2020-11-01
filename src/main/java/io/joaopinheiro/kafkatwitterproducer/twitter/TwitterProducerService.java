@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TwitterProducerService {
 
-    private TwitterProducerFactory twitterProducerFactory;
+    private final TwitterProducerFactory twitterProducerFactory;
     private TwitterProducer twitterProducer;
 
     @Autowired
