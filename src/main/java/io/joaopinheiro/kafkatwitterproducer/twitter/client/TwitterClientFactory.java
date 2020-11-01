@@ -19,6 +19,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 @Service
 public class TwitterClientFactory {
 
+    private final TwitterClientConfig twitterClientConfig;
+
+    public TwitterClientFactory(TwitterClientConfig twitterClientConfig) {
+        this.twitterClientConfig = twitterClientConfig;
+    }
+
     public TwitterClient buildTwitterClient() {
         var msgQueue = new LinkedBlockingQueue<String>(100000);
         var client = buildHosebirdClient(msgQueue);
@@ -35,7 +41,7 @@ public class TwitterClientFactory {
         hosebirdEndpoint.trackTerms(terms);
 
         // These secrets should be read from a config file
-        Authentication hosebirdAuth = new OAuth1("consumerKey", "consumerSecret", "token", "secret");
+        Authentication hosebirdAuth = new OAuth1(twitterClientConfig.consumerKey, twitterClientConfig.consumerSecret, twitterClientConfig.token, twitterClientConfig.tokenSecret);
 
         return new ClientBuilder()
                 .name("Hosebird-Client-01")                              // optional: mainly for the logs
