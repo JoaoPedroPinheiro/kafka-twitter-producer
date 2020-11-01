@@ -2,12 +2,16 @@ package io.joaopinheiro.kafkatwitterproducer.twitter;
 
 import io.joaopinheiro.kafkatwitterproducer.twitter.client.TwitterClient;
 import lombok.Value;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 @Value
 public class TwitterProducer {
+
+    Logger logger = LoggerFactory.getLogger(TwitterProducer.class);
 
     TwitterClient client;
     //kafka producer
@@ -24,7 +28,7 @@ public class TwitterProducer {
             while (!client.isDone()) {
                 var msg = msgQueue.poll(5, TimeUnit.SECONDS);
                 if (msg != null) {
-                    System.out.println(msg);
+                    logger.info(msg);
                 }
             }
         } catch (Exception e){
