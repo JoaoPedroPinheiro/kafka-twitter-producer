@@ -1,7 +1,8 @@
-package io.joaopinheiro.kafkatwitterproducer.twitter;
+package io.joaopinheiro.kafkatwitterproducer.app;
 
-import io.joaopinheiro.kafkatwitterproducer.twitter.client.TwitterClient;
+import io.joaopinheiro.kafkatwitterproducer.app.twitter.TwitterClient;
 import lombok.Value;
+import org.apache.kafka.clients.producer.Producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,10 +15,12 @@ public class TwitterProducer {
     Logger logger = LoggerFactory.getLogger(TwitterProducer.class);
 
     TwitterClient client;
+    Producer<String, String> kafkaProducer;
     //kafka producer
 
-    public TwitterProducer(TwitterClient client) {
+    public TwitterProducer(TwitterClient client, Producer<String, String> kafkaProducer) {
         this.client = client;
+        this.kafkaProducer = kafkaProducer;
     }
 
     public void run() {

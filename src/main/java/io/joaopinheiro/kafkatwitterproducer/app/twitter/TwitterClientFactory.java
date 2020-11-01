@@ -1,4 +1,4 @@
-package io.joaopinheiro.kafkatwitterproducer.twitter.client;
+package io.joaopinheiro.kafkatwitterproducer.app.twitter;
 
 import com.google.common.collect.Lists;
 import com.twitter.hbc.ClientBuilder;
@@ -40,7 +40,7 @@ public class TwitterClientFactory {
         hosebirdEndpoint.trackTerms(terms);
 
         // These secrets should be read from a config file
-        Authentication hosebirdAuth = new OAuth1(twitterClientConfig.consumerKey, twitterClientConfig.consumerSecret, twitterClientConfig.token, twitterClientConfig.tokenSecret);
+        Authentication hosebirdAuth = new OAuth1(twitterClientConfig.getConsumerKey(), twitterClientConfig.getConsumerSecret(), twitterClientConfig.getToken(), twitterClientConfig.getTokenSecret());
 
         return new ClientBuilder()
                 .name("Hosebird-Client-01")                              // optional: mainly for the logs

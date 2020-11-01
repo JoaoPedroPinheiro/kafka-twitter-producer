@@ -1,4 +1,4 @@
-package io.joaopinheiro.kafkatwitterproducer.twitter;
+package io.joaopinheiro.kafkatwitterproducer.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

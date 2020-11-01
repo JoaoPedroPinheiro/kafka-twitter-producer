@@ -1,4 +1,4 @@
-package io.joaopinheiro.kafkatwitterproducer.twitter.client;
+package io.joaopinheiro.kafkatwitterproducer.app.twitter;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("twitter")
 public class TwitterClientConfig {
 
-    String consumerKey;
-    String consumerSecret;
-    String token;
-    String tokenSecret;
+    private String consumerSecret;
+    private String consumerKey;
+    private String token;
+    private String tokenSecret;
 }

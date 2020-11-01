@@ -1,4 +1,4 @@
-package io.joaopinheiro.kafkatwitterproducer.twitter.client;
+package io.joaopinheiro.kafkatwitterproducer.app.twitter;
 
 import com.twitter.hbc.core.Client;
 import lombok.Value;

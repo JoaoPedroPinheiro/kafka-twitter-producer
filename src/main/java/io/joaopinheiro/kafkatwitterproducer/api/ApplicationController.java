@@ -1,6 +1,6 @@
 package io.joaopinheiro.kafkatwitterproducer.api;
 
-import io.joaopinheiro.kafkatwitterproducer.twitter.TwitterProducerService;
+import io.joaopinheiro.kafkatwitterproducer.app.TwitterProducerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
