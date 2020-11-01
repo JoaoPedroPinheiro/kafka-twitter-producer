@@ -19,7 +19,6 @@ public class TwitterClient {
         client.connect();
     }
 
-
     public boolean isDone() {
         return client.isDone();
     }

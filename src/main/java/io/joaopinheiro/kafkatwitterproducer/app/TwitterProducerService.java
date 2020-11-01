@@ -18,4 +18,8 @@ public class TwitterProducerService {
         twitterProducer = twitterProducerFactory.buildTwitterProducer();
         twitterProducer.run();
     }
+
+    public void stopProducer() {
+        twitterProducer.stop();
+    }
 }

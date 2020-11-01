@@ -11,7 +11,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 @Value
-public class TwitterProducer {
+public class TwitterProducer implements Runnable{
 
     private static final String KAFKA_TOPIC = "twitter_stream";
 
@@ -39,9 +39,13 @@ public class TwitterProducer {
                 }
             }
         } catch (Exception e) {
-            client.stop();
-            kafkaProducer.flush();
-            kafkaProducer.close();
+            stop();
         }
+    }
+
+    public void stop() {
+        client.stop();
+        kafkaProducer.flush();
+        kafkaProducer.close();
     }
 }

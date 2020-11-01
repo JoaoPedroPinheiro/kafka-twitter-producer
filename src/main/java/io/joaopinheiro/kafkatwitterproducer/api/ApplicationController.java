@@ -27,4 +27,10 @@ public class ApplicationController {
         twitterProducerService.startProducer();
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/stop")
+    public ResponseEntity<HttpStatus> stopTwitterProducer() {
+        twitterProducerService.stopProducer();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
